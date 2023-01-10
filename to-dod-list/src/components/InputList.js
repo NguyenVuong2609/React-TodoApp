@@ -24,9 +24,6 @@ export default function InputList() {
     useEffect(() => {
       localStorage.setItem("listTask", JSON.stringify(listTask))}
     ,[listTask]);
-    useEffect(()=> {
-        localStorage.setItem("listTask", JSON.stringify(listTask))}
-    ,[listTask]);
     const handleChange = (e, id)=> {
         let dataEdit = listTask.map(task => {
             if (task.id == id) {
@@ -38,13 +35,10 @@ export default function InputList() {
         setListTask(dataEdit);
     }
     const toogleInput = (id)=> {
-        console.log(id);
-        console.log(document.getElementById(`input${id}`));
         document.getElementById(`input${id}`).removeAttribute("disabled");
     }
     const keyCode = (e,id)=> {
         if (e.keyCode == 13){
-            console.log(document.getElementById(`input${id}`));
             document.getElementById(`input${id}`).setAttribute("disabled","");
         }
     }
